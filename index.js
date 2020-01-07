@@ -57,7 +57,9 @@ function render(file, opts) {
       'sourceComments',
       'sourceMap',
       'stats'
-    ]));
+    ]), function (error, result) {
+      return error ? opts.error(error) : opts.success(result.css.toString());
+    });
   });
 }
 
